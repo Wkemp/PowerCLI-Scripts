@@ -13,19 +13,19 @@ General notes
 #region Parameter
 [cmdletbinding()]
 PARAM(
-    [parameter(Mandatory=$true,Position=0,Helpmessage="vcenter to connect to")][ValidateSet('MSU','NKU','PAD')][String]$vCenter    
+    [parameter(Mandatory=$true,Position=0,Helpmessage="vcenter to connect to")][ValidateSet('VC1','VC2','VC3')][String]$vCenter    
 )
 
 #endregion Parameter
 
 #switch to convert shorthand name to proper VCenter name.
 Switch ($vCenter) {   
-   MSU {$VIServer = "msu-ucs-vcenter.msunet2k.edu"
-        Write-Verbose "$(Get-Date -f 'MM/dd/yyy hh:mm:ss tt') Using Vcenter: $VIServer"} #Main campus
-   NKU {$VIServer = "nkuvcenter.msunet2k.edu"
-        Write-Verbose "$(Get-Date -f 'MM/dd/yyy hh:mm:ss tt') Using Vcenter: $VIServer"} #Northern Kentucky University vcenter
-   PAD {$VIServer = "padvcenter.msunet2k.edu"
-        Write-Verbose "$(Get-Date -f 'MM/dd/yyy hh:mm:ss tt') Using Vcenter: $VIServer"} #Paducah campus vcenter
+   VC1 {$VIServer = "VC1.example.com"
+        Write-Verbose "$(Get-Date -f 'MM/dd/yyy hh:mm:ss tt') Using Vcenter: $VIServer"} #VCenter 1
+   VC2 {$VIServer = "VC2.example.com"
+        Write-Verbose "$(Get-Date -f 'MM/dd/yyy hh:mm:ss tt') Using Vcenter: $VIServer"} #VCenter 2
+   VC3 {$VIServer = "VC3.example.com"
+        Write-Verbose "$(Get-Date -f 'MM/dd/yyy hh:mm:ss tt') Using Vcenter: $VIServer"} #VCenter 3
    }
 
 #region vCenter Connect
